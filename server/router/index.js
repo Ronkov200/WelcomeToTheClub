@@ -1,13 +1,13 @@
 import Router from 'express'
-import userController from '../controllers/user-controller'
+import UserController from '../controllers/user-controller.js'
 
 const router = new Router()
 
-router.post('/registration', userController.registration)
-router.post('/login', userController.login)
-router.post('/logout', userController.logout)
-router.post('/activate/:link', userController.activate)
-router.get('/refresh', userController.refresh)
-router.get('/users', userController.getUsers)
+router.post('/registration', UserController.registration)
+router.post('/login', UserController.login)
+router.post('/logout', UserController.logout)
+router.post('/activate/:link', UserController.activate)
+router.get('/refresh', UserController.refresh)
+router.get('/users', UserController.getUsers)
 
-module.exports = router
+export default router;

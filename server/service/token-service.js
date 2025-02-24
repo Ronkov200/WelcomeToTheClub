@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import tokenModel from '../models/token-model.js'
+import TokenModel from '../models/token-model.js'
 
 class TokenService {
     generateTokens(payload) {
@@ -11,14 +11,14 @@ class TokenService {
         }
     }
     async saveToken(userId, refreshToken) {
-        const tokenData = await tokenModel.findOne({user :userId})
+        const tokenData = await TokenModel.findOne({user :userId})
         if (tokenData) {
             tokenData.refreshToken = refreshToken;
             return tokenData.save()
         }
-        const token = await tokenModel.create({user: userId, refreshToken})
+        const token = await TokenModel.create({user: userId, refreshToken})
         return token;
     }
 }
 
-module.exports = new TokenService();
+export default new TokenService() // При использовании ES-модулей синтаксис отличается от Common JS
