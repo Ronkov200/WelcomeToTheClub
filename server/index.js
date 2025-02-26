@@ -1,5 +1,5 @@
-import dotenv from 'dotenv';
-dotenv.config();
+import "./load-env.js"
+console.log(process.env.SMTP_HOST)
 
 import express from 'express'
 import cors from 'cors'
